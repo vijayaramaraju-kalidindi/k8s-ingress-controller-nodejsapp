@@ -43,7 +43,6 @@ Refreshing the page shows different pod hostnames, clearly proving load balancin
 ├── package.json # Node.js dependencies
 ├── server.js # Backend application
 ├── README.md # Documentation
-
 ```
 
 ## 🧱 Prerequisites
@@ -59,23 +58,23 @@ Refreshing the page shows different pod hostnames, clearly proving load balancin
 ## 🚀 Build and Push Docker Image
 
 Clone the repository:
-
+```text
 git clone https://github.com/vijayaramaraju-kalidindi/k8s-ingress-controller-nodejsapp.git
 cd k8s-ingress-controller-nodejsapp
-
+```
 Build the image:
-
+```text
 docker build -t <your-dockerhub-username>/k8s-ui-demo:1.0 .
-
+```
 Push the image:
-
+```text
 docker push <your-dockerhub-username>/k8s-ui-demo:1.0
-
+```
 ☸️ Kubernetes Deployment
 1️⃣ Deployment
 
 Creates 3 replicas and injects Kubernetes metadata using the Downward API.
-
+```text
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -110,15 +109,15 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-
+```
 Apply:
-
+```text
 kubectl apply -f deployment.yaml
-
+```
 2️⃣ Service
 
 ClusterIP service used by Traefik.
-
+```text
 apiVersion: v1
 kind: Service
 metadata:
@@ -130,16 +129,16 @@ spec:
   ports:
   - port: 80
     targetPort: 3000
-
+```
 
 Apply:
-
+```text
 kubectl apply -f service.yaml
-
+```
 🌐 Traefik IngressRoute
 
 This IngressRoute allows direct IP-based access, no DNS or /etc/hosts required.
-
+```text
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
@@ -153,20 +152,20 @@ spec:
     services:
     - name: k8s-ui-demo
       port: 80
-
+```
 Apply:
-
+```text
 kubectl apply -f ingressroute.yaml
-
+```
 🔍 Verification
 
 Check resources:
-
+```text
 kubectl get pods
 kubectl get svc k8s-ui-demo
 kubectl get ingressroute
 kubectl get endpoints k8s-ui-demo
-
+```
 You should see:
 
 Multiple running pods
@@ -180,17 +179,17 @@ Multiple endpoints
 🌍 Access the Application
 
 Get Traefik external IPs:
-
+```text
 kubectl get svc -n kube-system
-
+```
 Example output:
 
 traefik   LoadBalancer   10.32.x.x,10.32.x.x
 
 Open in browser:
-
+```text
 http://10.32.x.x
-
+```
 Refresh multiple times to observe:
 
 Hostname changes
