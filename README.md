@@ -17,7 +17,7 @@ A modern Node.js application deployed on a **k3s Kubernetes cluster**, exposed u
 - Native Traefik IngressRoute integration
 - No frontend frameworks, lightweight and fast
 
-### Information displayed on UI
+## Information displayed on UI
 - Pod hostname
 - Pod IP
 - Node name
