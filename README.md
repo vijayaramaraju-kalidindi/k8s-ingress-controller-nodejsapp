@@ -71,8 +71,9 @@ Push the image:
 docker push <your-dockerhub-username>/k8s-ui-demo:1.0
 ```
 ---
-☸️ Kubernetes Deployment
-1️⃣ Deployment
+## ☸️ Kubernetes Deployment
+
+# 1️⃣ Deployment
 
 Creates 3 replicas and injects Kubernetes metadata using the Downward API.
 ```text
