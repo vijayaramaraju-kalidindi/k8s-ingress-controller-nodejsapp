@@ -35,7 +35,7 @@ Refreshing the page shows different pod hostnames, clearly proving load balancin
 ---
 
 ## 📂 Repository Structure
-
+```text
 .
 ├── public/
 │ └── index.html # UI
