@@ -3,7 +3,7 @@ Node JS App Deployed on K3S setup
 
 A modern Node.js application deployed on a **k3s Kubernetes cluster**, exposed using **Traefik IngressRoute**, and designed to visually demonstrate **load balancing, pod identity, and runtime metadata** through a sleek UI.
 
-This project is ideal for:
+# This project is ideal for:
 - Kubernetes ingress demos
 - Traefik IngressRoute learning
 - Interviews and architecture walkthroughs
