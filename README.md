@@ -70,6 +70,7 @@ Push the image:
 ```text
 docker push <your-dockerhub-username>/k8s-ui-demo:1.0
 ```
+---
 ☸️ Kubernetes Deployment
 1️⃣ Deployment
 
