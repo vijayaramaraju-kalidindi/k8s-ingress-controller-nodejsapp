@@ -73,7 +73,7 @@ docker push <your-dockerhub-username>/k8s-ui-demo:1.0
 ---
 ## ☸️ Kubernetes Deployment
 
-# 1️⃣ Deployment
+### 1️⃣ Deployment
 
 Creates 3 replicas and injects Kubernetes metadata using the Downward API.
 ```text
@@ -116,7 +116,7 @@ Apply:
 ```text
 kubectl apply -f deployment.yaml
 ```
-2️⃣ Service
+### 2️⃣ Service
 
 ClusterIP service used by Traefik.
 ```text
@@ -137,7 +137,7 @@ Apply:
 ```text
 kubectl apply -f service.yaml
 ```
-🌐 Traefik IngressRoute
+### 🌐 Traefik IngressRoute
 
 This IngressRoute allows direct IP-based access, no DNS or /etc/hosts required.
 ```text
@@ -159,7 +159,7 @@ Apply:
 ```text
 kubectl apply -f ingressroute.yaml
 ```
-🔍 Verification
+### 🔍 Verification
 
 Check resources:
 ```text
@@ -178,7 +178,7 @@ One IngressRoute
 
 Multiple endpoints
 
-🌍 Access the Application
+### 🌍 Access the Application
 
 Get Traefik external IPs:
 ```text
