@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kubernetes Ingress Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(18px);
+      border-radius: 18px;
+      padding: 30px 40px;
+      width: 420px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 26px;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 14px;
+      column-gap: 10px;
+      font-size: 14px;
+    }
+
+    .label {
+      opacity: 0.7;
+    }
+
+    .value {
+      font-weight: 600;
+      text-align: right;
+      word-break: break-word;
+    }
+
+    .footer {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>🚀 Kubernetes Demo</h1>
+    <div class="subtitle">Ingress + Load Balancer</div>
+
+    <div class="info">
+      <div class="label">Application</div>
+      <div class="value" id="app"></div>
+
+      <div class="label">Hostname</div>
+      <div class="value" id="hostname"></div>
+
+      <div class="label">Node.js</div>
+      <div class="value" id="node"></div>
+
+      <div class="label">Platform</div>
+      <div class="value" id="platform"></div>
+
+      <div class="label">Environment</div>
+      <div class="value" id="env"></div>
+
+      <div class="label">Current Time</div>
+      <div class="value" id="time"></div>
+    </div>
+
+    <div class="footer">
+      Served by Kubernetes Pod
+    </div>
+  </div>
+
+  <script>
+    async function loadInfo() {
+      const res = await fetch("/api/info");
+      const data = await res.json();
+
+      document.getElementById("app").innerText = data.app;
+      document.getElementById("hostname").innerText = data.hostname;
+      document.getElementById("node").innerText = data.nodeVersion;
+      document.getElementById("platform").innerText = data.platform;
+      document.getElementById("env").innerText = data.env;
+      document.getElementById("time").innerText = data.time;
+    }
+
+    loadInfo();
+    setInterval(loadInfo, 5000);
+  </script>
+
+</body>
+</html>
