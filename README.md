@@ -43,7 +43,7 @@ Refreshing the page shows different pod hostnames, clearly proving load balancin
 ├── package.json # Node.js dependencies
 ├── server.js # Backend application
 ├── README.md # Documentation
-
+```text
 ## 🧱 Prerequisites
 
 - k3s cluster (1 master + 1 worker or more)
